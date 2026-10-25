@@ -15,8 +15,7 @@ let parisTimeElement = parisElement.querySelector(".time");
 let parisTime = moment().tz("Europe/Paris");
 parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
 parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");}}
-updateTime()
-setInterval(updateTime, 1000);
+
 
 function updateCity(event) {
     let cityTimeZone = event.target.value;
@@ -30,7 +29,10 @@ let cityName = cityTimeZone.replace("_"," ").split("/")[1];
             <div class="date">${cityTime.format("MMM Do YYYY")}</div>
         </div>
         <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format("A")}</small></div>
-    </div>`;
+    </div>
+    <a href ="/">All cities</a>`;
 }
+updateTime()
+setInterval(updateTime, 1000);
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
